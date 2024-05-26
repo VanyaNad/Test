@@ -27,39 +27,87 @@ body {
   margin-top: 100px;
   width: 200px;
   height: 200px;
-  border-radius: 50%;
+  border-radius: 25%;
   background: linear-gradient(135deg, #ff8a00, #7a1c3e);
   -webkit-animation: rotate 2s linear infinite;
           animation: rotate 2s linear infinite;
 }
 
 @-webkit-keyframes rotate {
-  from {
+  0% {
     -webkit-transform: rotate(0deg);
             transform: rotate(0deg);
   }
-  to {
+  50% {
+    border-radius: 50%;
+    border-bottom-right-radius: 70%;
+    border-top-left-radius: 70%;
+  }
+  100% {
+    border-radius: 25%;
     -webkit-transform: rotate(360deg);
             transform: rotate(360deg);
   }
 }
 
 @keyframes rotate {
-  from {
+  0% {
     -webkit-transform: rotate(0deg);
             transform: rotate(0deg);
   }
-  to {
+  50% {
+    border-radius: 50%;
+    border-bottom-right-radius: 70%;
+    border-top-left-radius: 70%;
+  }
+  100% {
+    border-radius: 25%;
     -webkit-transform: rotate(360deg);
             transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes FloorMove {
+  from {
+    -webkit-transform: translateX(10%);
+            transform: translateX(10%);
+  }
+  to {
+    -webkit-transform: translateX(-15%);
+            transform: translateX(-15%);
+  }
+}
+@keyframes FloorMove {
+  from {
+    -webkit-transform: translateX(10%);
+            transform: translateX(10%);
+  }
+  to {
+    -webkit-transform: translateX(-15%);
+            transform: translateX(-15%);
   }
 }
 .Floor {
   background-color: #fafafa;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#20489a), to(#1a1a1a));
   background-image: linear-gradient(to bottom, #20489a, #1a1a1a);
-  width: 100%;
+  width: 200%;
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
+  border-top: 3px dotted #20489a;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-animation: FloorMove 2s linear infinite;
+          animation: FloorMove 2s linear infinite;
+}
+.Floor div {
+  margin-top: -3px;
+  width: 10px;
+  height: 100%;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(transparent));
+  background-image: linear-gradient(to bottom, #fff, transparent);
 }

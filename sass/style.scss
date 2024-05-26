@@ -18,23 +18,52 @@ body{
     margin-top: 100px;
     width:200px;
     height: 200px;
-    border-radius: 50%;
+    border-radius: 25%;
     background: linear-gradient(135deg, #ff8a00, #7a1c3e);
     animation: rotate 2s linear infinite;
 }
 
 @keyframes rotate{
-    from{
+    0%{
         transform: rotate(0deg);
+
+    }
+    50%{
+        
+        border-radius: 50%;
+        border-bottom-right-radius: 70%;
+        border-top-left-radius: 70%;
+    }
+    100%{
+        border-radius: 25%;
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes FloorMove{
+    from{
+        transform: translateX(10%);
     }
     to{
-        transform: rotate(360deg);
+        transform: translateX(-15%);
     }
 }
 
 .Floor{
     background-color: #fafafa;
     background-image: linear-gradient(to bottom, #20489a, #1a1a1a);
-    width: 100%;
+    width: 200%;
     flex-grow: 1;
+    border-top: 3px dotted #20489a;
+    display: flex;
+    justify-content: space-between;
+    animation: FloorMove 2s linear infinite;
+    
+    div{
+        margin-top: -3px;
+        width: 10px;
+        height: 100%;
+        background-image: linear-gradient(to bottom, #fff, transparent);
+    }
+    
 }
